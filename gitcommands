@@ -1,7 +1,0 @@
-git clone https://github.com/ZackLaskar/Python.git #cloning the github.com repo to your computer.
-git status
-git add write2CSVinColumns.py
-git add -A #adds all the files in the folder to the repo 
-git commit -m "17mar2017: Modified comments in write2CSVinColumns.py"
-git push
-git status
