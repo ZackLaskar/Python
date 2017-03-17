@@ -1,11 +1,9 @@
-#check files in a dir and generate a csv in which each column has files with similar extension listed in it. Also give file ext name as
-# column header
+#---------------------------------------------------------------------------------------------------------------------------------------#
+# Checks files in a directory and segregates filenames based on their extension and prints them in csv file under respective extn name. #
+#---------------------------------------------------------------------------------------------------------------------------------------#
 
 import os, csv, sys
 
-#path = "/Users/Muzakkir/Downloads"
-#os.chdir(path)
-#print (os.getcwd())
 Extensionlist = []
 uniquelist = []
 def extenstionreader(path):
@@ -19,11 +17,6 @@ def extenstionreader(path):
     return uniquelist
 
 
-#with open('/users/Muzakkir/PycharmProjects/LearningPy/samples/usage.csv', 'w') as csvfile:
-#    extenstionreader("/Users/Muzakkir/Downloads")
-#    for i in uniquelist:
-#        csvfile.write(i +",")
-
 extenstionreader("/Users/Muzakkir/Downloads")
 testdic= {}
 for files in os.listdir("/Users/Muzakkir/Downloads"):
@@ -31,7 +24,6 @@ for files in os.listdir("/Users/Muzakkir/Downloads"):
         if extn in os.path.splitext(files):
             testdic.setdefault(extn, []).append(files)
 
-#print testdic
 # finding the key which has highest number of values assigned to it.
 maxLenOfKeyValueFromtestdic = max([len(testdic[i]) for i in testdic.keys()])
 
@@ -40,8 +32,6 @@ maxLenOfKeyValueFromtestdic = max([len(testdic[i]) for i in testdic.keys()])
 for j in testdic.keys():
     while len(testdic[j]) != maxLenOfKeyValueFromtestdic:
         testdic[j].append(None)     #appending None values to keys whose number of values are not same as max valued key
-
-#print testdic
 
 with open('/users/Muzakkir/PycharmProjects/LearningPy/samples/usage.csv', 'wb') as csvfileread:
     writer = csv.writer(csvfileread, delimiter = ",")
