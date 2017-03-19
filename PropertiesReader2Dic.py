@@ -5,7 +5,7 @@
 # 	 Eg: Refer Test2Dict.properties for example of the property file to be used for this code.
 
 
-file = "/Users/Muzakkir/PycharmProjects/LearningPy/forJython/test.properties"
+file = "/Users/Muzakkir/forJython/Test2Dict.properties"
 
 def PropFileReader(file, value):
     f = open(file)
