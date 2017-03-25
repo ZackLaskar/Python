@@ -1,7 +1,7 @@
 # Wrote this code to read a custom property file into a dictionary.
-# Jython does not have that cool configParser module as Python to read, parse the properties file.
+# Websphere Application server Jython does not have that cool configParser module as Python has to read/parse a properties file.
 # This code reads values of a particular section in the properties file into a dictionary.
-# Usage: PropFileReader function should be passed as an argument, the property file and the section to be read from it.
+# Usage: PropFileReader function should be passed the following arguments - 1. The property file,  2. the section to be read from it.
 # 	 Eg: Refer Test2Dict.properties for example of the property file to be used for this code.
 
 
