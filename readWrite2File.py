@@ -43,7 +43,7 @@ with open('/users/muzakkir/test/test.txt','r') as rf:
             wf.write(line)
 
 '''Copying files other then texts like jpg's..'''
-with open('/Users/zach/Pictures/eurotrip/dslr/DSC_017.jpg','rb') as rf:
+with open('/Users/zach/Pictures/eurotrip/dslr/22DSC_017.jpg','rb') as rf:
     with open('/users/muzakkir/Desktop/test.jpg','wb') as wf:
         for line in rf:
             wf.write(line)
