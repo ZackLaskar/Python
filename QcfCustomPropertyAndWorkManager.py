@@ -1,17 +1,24 @@
 
+# Create custom property a Queue connection Factory.
+
+import re
+
 customProperty = 'testcus1'
 customPropertyValue = 'testcusval1'
 WMQcfs = AdminConfig.list('MQQueueConnectionFactory').splitlines()
 
 for wmqcf in WMQcfs:
-        if wmqcf.find('testQCF') >= 0:
-                #print AdminConfig.showAttribute( wmqcf, 'propertySet' )
-				AdminConfig.create('J2EEResourceProperty',AdminConfig.showAttribute( wmqcf, 'propertySet' ), '[[name "%s"] [type "java.lang.String"] [description ""] [value "%s"] [required "false"]]' % (customProperty, customPropertyValue))
-				AdminConfig.save()
-				AdminNodeManagement.syncActiveNodes()
+	if re.search('testQCF$',wmqcf):    # testQCF$ matches exact word using regular Exp.
+		print wmqcf
+
+#print AdminConfig.showAttribute( wmqcf, 'propertySet' )
+AdminConfig.create('J2EEResourceProperty',AdminConfig.showAttribute( wmqcf, 'propertySet' ), '[[name "%s"] [type "java.lang.String"] [description ""] [value "%s"] [required "false"]]' % (customProperty, customPropertyValue))
+AdminConfig.save()
+AdminNodeManagement.syncActiveNodes()
 
 				
 # WorkManager wsadmin
+
 NodeName='Node1'
 CellName='PSCell1'
 serverName='TestCluster-Member1'
