@@ -13,20 +13,20 @@ customProperty = 'testcus1323'
 customPropertyValue = 'testcus23val13'
 WMQcfs = AdminConfig.list('MQQueueConnectionFactory').splitlines()
 for wmqcf in WMQcfs:
-       # if wmqcf.find('testQCF13') >= 0:
-	 if re.search( testQCF13$, wmqcf): # make sure you find the exact match of the qcf name
-				#print wmqcf
-				propSet = AdminConfig.showAttribute( wmqcf, 'propertySet' )
-				print "propSet :", propSet
-				if propSet == None:
-					newPropSet = AdminConfig.create('J2EEResourcePropertySet',wmqcf,[])
-					propSet = AdminConfig.showAttribute(wmqcf, 'propertySet')
-					#AdminConfig.save()
-					AdminConfig.create('J2EEResourceProperty',propSet, '[[name "%s"] [type "java.lang.String"] [description ""] [value "%s"] [required "false"]]' % (customProperty, customPropertyValue))
-					AdminConfig.save()
-					AdminNodeManagement.syncActiveNodes()
-				else:
-					print "propSet :", propSet
-					AdminConfig.create('J2EEResourceProperty',AdminConfig.showAttribute( wmqcf, 'propertySet' ), '[[name "%s"] [type "java.lang.String"] [description ""] [value "%s"] [required "false"]]' % (customProperty, customPropertyValue))
-					AdminConfig.save()
-					AdminNodeManagement.syncActiveNodes()
+      # if wmqcf.find('testQCF13') >= 0:
+ 	if re.search( testQCF13$, wmqcf): # make sure you find the exact match of the qcf name
+		#print wmqcf
+		propSet = AdminConfig.showAttribute( wmqcf, 'propertySet' )
+		print "propSet :", propSet
+		if propSet == None:
+			newPropSet = AdminConfig.create('J2EEResourcePropertySet',wmqcf,[])
+			propSet = AdminConfig.showAttribute(wmqcf, 'propertySet')
+			#AdminConfig.save()
+			AdminConfig.create('J2EEResourceProperty',propSet, '[[name "%s"] [type "java.lang.String"] [description ""] [value "%s"] [required "false"]]' % (customProperty, customPropertyValue))
+			AdminConfig.save()
+			AdminNodeManagement.syncActiveNodes()
+		else:
+			print "propSet :", propSet
+			AdminConfig.create('J2EEResourceProperty',AdminConfig.showAttribute( wmqcf, 'propertySet' ), '[[name "%s"] [type "java.lang.String"] [description ""] [value "%s"] [required "false"]]' % (customProperty, customPropertyValue))
+			AdminConfig.save()
+			AdminNodeManagement.syncActiveNodes()
